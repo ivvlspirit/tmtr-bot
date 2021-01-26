@@ -15,7 +15,7 @@ client.on('ready', () => console.log('The bot is ready.'));
 
 client.on('message', commandHandler);
 
-const intervalTime = 1000*60*55;
+const intervalTime = 1000*60*20;
 
 setInterval(() => {
     ping.sys.probe('tmtr-bot.herokuapp.com', function(isAlive){
