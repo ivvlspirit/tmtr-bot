@@ -1,11 +1,13 @@
 const help = require("./commands/help");
 const gif = require("./commands/gif");
 const cf = require("./commands/cf");
+const yt = require("./commands/yt");
 
 const commands = {
     help,
     gif,
-    cf
+    cf,
+    yt
 };
 
 module.exports = async (msg) => {
@@ -14,6 +16,12 @@ module.exports = async (msg) => {
 
     if((msg.author.id == process.env.ADMIN_ID || msg.channel.id == process.env.TESTING_CHANNEL) && first == '-tmtr'){
         var tag = tokens.shift();
-        commands[tag](msg, tokens);
+
+        try{
+            commands[tag](msg, tokens);
+        }catch(err){
+            commands['help'](msg, tokens);
+        }
+        
     }
 }

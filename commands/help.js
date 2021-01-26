@@ -7,6 +7,7 @@ module.exports = function(msg, args) {
         .addFields(
             {name: 'Command list:', value: '`-tmtr help`'},
             {name: 'CodeForces user info:', value: '`-tmtr cf *handle*`'},
+            {name: 'YouTube user info:', value: '`-tmtr yt *username*`'},
             {name: 'GIF Search: ', value: '`-tmtr gif *query*`'}
         )
 
