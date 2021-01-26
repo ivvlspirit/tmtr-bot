@@ -1,4 +1,5 @@
-const fetch = require("node-fetch");
+const fetch = require('node-fetch');
+const Discord = require('discord.js');
 
 module.exports = async function(msg, args){
     console.log('called cf!');
@@ -17,7 +18,19 @@ module.exports = async function(msg, args){
         if(json.status != 'OK'){
             msg.channel.send('Something went wrong while fetching user info!');
         }else{
-            msg.channel.send(`${json.result[0].handle}:\n\tRating: ${json.result[0].rating}\n\tMax. rating: ${json.result[0].maxRating}`);
+            
+            var message = new Discord.MessageEmbed()
+                .setTitle(json.result[0].handle)
+                .setColor('#fc038c')
+                .setURL(`https://codeforces.com/profile/${json.result[0].handle}`)
+                .addFields(
+                    { name: 'Current rating: ', value: json.result[0].rating, inline: true},
+                    { name: 'Current title: ', value: json.result[0].rank, inline: true},
+                    { name: 'Max. rating: ', value: json.result[0].maxRating, inline: true},
+                    { name: 'Max. title: ', value: json.result[0].maxRank, inline: true}
+                );
+
+            msg.channel.send(message);
         }
     }
 
