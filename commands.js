@@ -14,7 +14,7 @@ module.exports = async (msg) => {
     var tokens = msg.content.split(' ');
     var first = tokens.shift();
 
-    if((msg.author.id == process.env.ADMIN_ID || msg.channel.id == process.env.TESTING_CHANNEL) && first == '-tmtr'){
+    if(first == '-tmtr'){
         var tag = tokens.shift();
 
         try{
