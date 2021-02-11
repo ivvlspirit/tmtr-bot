@@ -2,12 +2,14 @@ const help = require("./commands/help");
 const gif = require("./commands/gif");
 const cf = require("./commands/cf");
 const yt = require("./commands/yt");
+const say = require("./commands/say");
 
 const commands = {
     help,
     gif,
     cf,
-    yt
+    yt,
+    say
 };
 
 module.exports = async (msg) => {
