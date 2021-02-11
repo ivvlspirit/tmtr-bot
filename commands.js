@@ -3,13 +3,15 @@ const gif = require("./commands/gif");
 const cf = require("./commands/cf");
 const yt = require("./commands/yt");
 const say = require("./commands/say");
+const crypto = require("./commands/crypto");
 
 const commands = {
     help,
     gif,
     cf,
     yt,
-    say
+    say,
+    crypto
 };
 
 module.exports = async (msg) => {
